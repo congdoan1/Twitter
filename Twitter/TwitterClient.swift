@@ -30,8 +30,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     func login(success: () -> (), failure: NSError -> ()) {
         loginSuccess = success
         loginFailure = failure
-        deauthorize()
         
+        deauthorize()
         fetchRequestTokenWithPath(
             requestToken,
             method: "GET",

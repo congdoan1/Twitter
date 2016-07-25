@@ -18,16 +18,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLf-sK-OH3">
-                                <rect key="frame" x="62" y="301" width="197" height="40"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                <state key="normal" title="Log in with Twitter"/>
-                                <connections>
-                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39K-KV-UsZ"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="Euj-vE-JCj">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Euj-vE-JCj" secondAttribute="height" multiplier="1:1" id="kV1-MA-ghi"/>
+                                    <constraint firstAttribute="height" constant="100" id="wfX-Zc-S3F"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-Jf-bKu">
+                                <rect key="frame" x="70" y="359" width="181" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B8-1p-a9j">
+                                <rect key="frame" x="91" y="405" width="139" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-3l-yyx">
+                                        <rect key="frame" x="42" y="4" width="54" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VwO-ri-Iaw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bGi-3l-yyx" firstAttribute="centerX" secondItem="0B8-1p-a9j" secondAttribute="centerX" id="1uK-QV-Z8o"/>
+                                    <constraint firstItem="bGi-3l-yyx" firstAttribute="centerY" secondItem="0B8-1p-a9j" secondAttribute="centerY" id="Gv4-Kd-P3x"/>
+                                    <constraint firstAttribute="height" constant="43" id="Jbg-qO-yjS"/>
+                                    <constraint firstAttribute="width" constant="139" id="l7W-sW-Xc1"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KhU-Jf-bKu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="46S-t5-W6E"/>
+                            <constraint firstItem="Euj-vE-JCj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8iQ-oc-HQW"/>
+                            <constraint firstItem="0B8-1p-a9j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QLF-jt-383"/>
+                            <constraint firstItem="Euj-vE-JCj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aIz-Ot-6eI"/>
+                            <constraint firstItem="KhU-Jf-bKu" firstAttribute="top" secondItem="Euj-vE-JCj" secondAttribute="bottom" constant="25" id="chB-Ty-QZd"/>
+                            <constraint firstItem="0B8-1p-a9j" firstAttribute="top" secondItem="KhU-Jf-bKu" secondAttribute="bottom" constant="20" id="xav-6m-EZl"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -236,6 +269,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2MO-SM-JdP">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="SQg-bA-2br">
+                            <connections>
+                                <action selector="onLogout:" destination="9UW-Ds-Kxp" id="O6c-kk-Yhe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="compose-action" id="3Q0-x3-j0v">
                             <connections>
                                 <segue destination="lJu-M8-WmX" kind="presentation" identifier="TweetComposeSegue" id="y6R-Tx-OEQ"/>
@@ -668,5 +706,6 @@
         <image name="reply-action-pressed" width="32" height="36"/>
         <image name="retweet-action" width="37" height="36"/>
         <image name="retweet-action-inactive" width="37" height="36"/>
+        <image name="twitter_logo_white" width="105" height="105"/>
     </resources>
 </document>

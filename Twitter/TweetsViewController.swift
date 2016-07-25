@@ -121,6 +121,10 @@ class TweetsViewController: UIViewController {
         )
     }
     
+    @IBAction func onLogout(sender: UIBarButtonItem) {
+        User.currentUser?.logout()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TweetDetailsSegue" {
             let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
